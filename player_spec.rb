@@ -5,6 +5,7 @@ describe Player do
 	before do
 		@initial_health = 150
 		@player = Player.new("larry", @initial_health)
+		$stdout = StringIO.new #prevents stdout printing to console
 	end
 	
 	it "has a capitalized name" do
