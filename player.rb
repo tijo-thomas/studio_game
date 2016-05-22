@@ -26,6 +26,9 @@ class Player
 		@health + @name.length
 	end
 
+	def strong? # methods with '?' are called predicate methods
+		@health > 100
+	end
 end
 
 # The if expression only runs the enclosing code if the name
