@@ -14,6 +14,22 @@ class Game
 		@players << a_player
 	end
 
+	def play(rounds)
+		puts "There are #{@players.size} players in #{@title}:"
+		
+		@players.each do |player|
+			puts player
+		end
+
+		1.upto(rounds) do |round|
+			puts "\nRound #{round}:"
+			@players.each do |player|
+				GameTurn.take_turn(player)
+				puts player
+			end
+		end
+	end
+	
 	def print_name_and_health(player) # refactoring of previous code, see below
 		puts "#{player.name} (#{player.health})"
 	end
@@ -42,20 +58,5 @@ class Game
 		end
 	end
 
-	def play(rounds)
-		puts "There are #{@players.size} players in #{@title}:"
-		
-		@players.each do |player|
-			puts player
-		end
-
-		1.upto(rounds) do |round|
-			puts "\nRound #{round}:"
-			@players.each do |player|
-				GameTurn.take_turn(player)
-				puts player
-			end
-		end
-	end
 
 end
