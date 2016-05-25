@@ -29,6 +29,11 @@ class Player
 	def strong? # methods with '?' are called predicate methods
 		@health > 100
 	end
+
+	def <=>(other) # the comparison operator, this is what ruby uses for sorting
+		other.score <=> score
+	end
+
 end
 
 # The if expression only runs the enclosing code if the name

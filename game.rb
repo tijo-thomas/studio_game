@@ -28,6 +28,14 @@ class Game
 		whimpy_players.each do |player|
 			puts "#{player.name} (#{player.health})"
 		end
+
+		sorted_players = @players.sort { |a, b| b.score <=> a.score }
+
+		puts "\n#{@title} High Scores:"
+		sorted_players.each do |player|
+			formatted_name = player.name.ljust(20, '.')
+			puts puts "#{formatted_name} #{player.score}"
+		end
 	end
 
 	def play(rounds)
