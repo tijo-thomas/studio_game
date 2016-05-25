@@ -14,6 +14,10 @@ class Game
 		@players << a_player
 	end
 
+	def print_name_and_health(player) # refactoring of previous code, see below
+		puts "#{player.name} (#{player.health})"
+	end
+
 	def print_stats
 		strong_players, whimpy_players = @players.partition { |player| player.strong? }
 
@@ -21,12 +25,12 @@ class Game
 
 		puts "\n#{strong_players.size} strong players"
 		strong_players.each do |player|
-			puts "#{player.name} (#{player.health})"
+			print_name_and_health(player)
 		end
 
 		puts "\n#{whimpy_players.size} whimpy players"
 		whimpy_players.each do |player|
-			puts "#{player.name} (#{player.health})"
+			print_name_and_health(player)
 		end
 
 		sorted_players = @players.sort { |a, b| b.score <=> a.score }
