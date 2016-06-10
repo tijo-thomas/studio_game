@@ -1,5 +1,6 @@
 require_relative "player"
 require_relative "game_turn"
+require_relative "treasure_trove"
 
 class Game
 	
@@ -19,6 +20,13 @@ class Game
 		
 		@players.each do |player|
 			puts player
+		end
+
+		# Created local variable of the TREASURES constant thats an array.
+		treasures = TreasureTrove::TREASURES
+		puts "\nThere are #{treasures.size} treasures to be found:"
+		treasures.each do |treasure|
+			puts "A #{treasure.name} is worth #{treasure.points} points."
 		end
 
 		1.upto(rounds) do |round|
