@@ -6,6 +6,7 @@ class Player
 	def initialize(name, health=100)
 		@name = name.capitalize
 		@health = health
+		@found_treasures = Hash.new(0) # Initializes an hash instance that has a default of 0 for all values.
 	end
 
 	def to_s
@@ -32,6 +33,17 @@ class Player
 
 	def <=>(other) # the comparison operator, this is what ruby uses for sorting
 		other.score <=> score
+	end
+
+	# Adds key-value pair to @found_treasures hash.
+	def found_treasure(treasure)
+		@found_treasures[treasure.name] += treasure.points
+		puts "#{@name} found a #{treasure.name} worth #{treasure.points} points."
+		puts "#{@name}'s treasures: #{@found_treasures}."
+	end
+
+	def points
+		@found_treasures.values.reduce(0, :+)
 	end
 
 end
