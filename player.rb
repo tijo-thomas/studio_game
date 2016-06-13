@@ -1,3 +1,5 @@
+require_relative "treasure_trove"
+
 class Player
 	
 	attr_accessor :name
@@ -7,10 +9,6 @@ class Player
 		@name = name.capitalize
 		@health = health
 		@found_treasures = Hash.new(0) # Initializes an hash instance that has a default of 0 for all values.
-	end
-
-	def to_s
-		"I'm #{@name} with health = #{@health}, points = #{points}, and score = #{score}."
 	end
 
 	def blam
@@ -27,12 +25,12 @@ class Player
 		@health + points
 	end
 
-	def strong? # methods with '?' are called predicate methods
-		@health > 100
+	def points
+		@found_treasures.values.reduce(0, :+)
 	end
 
-	def <=>(other) # the comparison operator, this is what ruby uses for sorting
-		other.score <=> score
+	def strong? # methods with '?' are called predicate methods
+		@health > 100
 	end
 
 	# Adds key-value pair to @found_treasures hash.
@@ -42,8 +40,12 @@ class Player
 		puts "#{@name}'s treasures: #{@found_treasures}."
 	end
 
-	def points
-		@found_treasures.values.reduce(0, :+)
+	def <=>(other) # the comparison operator, this is what ruby uses for sorting
+		other.score <=> score
+	end
+
+	def to_s
+		"I'm #{@name} with health = #{@health}, points = #{points}, and score = #{score}."
 	end
 
 end
