@@ -10,7 +10,7 @@ class Player
 	end
 
 	def to_s
-		"I'm #{@name} with a health of #{@health} and a score of #{score}."
+		"I'm #{@name} with health = #{@health}, points = #{points}, and score = #{score}."
 	end
 
 	def blam
@@ -24,7 +24,7 @@ class Player
 	end
 
 	def score
-		@health + @name.length
+		@health + points
 	end
 
 	def strong? # methods with '?' are called predicate methods
