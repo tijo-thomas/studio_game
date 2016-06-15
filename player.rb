@@ -48,6 +48,12 @@ class Player
 		"I'm #{@name} with health = #{@health}, points = #{points}, and score = #{score}."
 	end
 
+	def each_found_treasure
+		@found_treasures.each do |name, points|
+			yield Treasure.new(name, points)
+		end
+	end
+
 end
 
 # The if expression only runs the enclosing code if the name
