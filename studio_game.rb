@@ -7,8 +7,14 @@ player3 = Player.new("curly", 125)
 
 knuckleheads = Game.new("Knuckleheads")
 puts knuckleheads.title
-knuckleheads.add_player(player1)
-knuckleheads.add_player(player2)
-knuckleheads.add_player(player3)
+
+# knuckleheads.add_player(player1)
+# knuckleheads.add_player(player2)
+# knuckleheads.add_player(player3)
+
+loop do
+	puts "\nHow many games rounds? ('quit' to exit)"
+end
+
 knuckleheads.play(3)
 knuckleheads.print_stats
