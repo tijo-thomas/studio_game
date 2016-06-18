@@ -11,6 +11,11 @@ class Player
 		@found_treasures = Hash.new(0) # Initializes an hash instance that has a default of 0 for all values.
 	end
 
+	def self.from_csv(string)
+		name, health = string.split(',')
+		Player.new(name, Integer(health))
+	end
+
 	def blam
 		@health -= 10
 		puts "#{@name} got blammed!"
