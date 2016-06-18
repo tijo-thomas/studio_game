@@ -9,10 +9,6 @@ knuckleheads = Game.new("Knuckleheads")
 knuckleheads.load_players(ARGV.shift || "players.csv") # Calls the load_players method and passes the csv file entered as command-line argument or defaults to "players.csv".
 puts knuckleheads.title
 
-# knuckleheads.add_player(player1)
-# knuckleheads.add_player(player2)
-# knuckleheads.add_player(player3)
-
 loop do
 	puts "\nHow many games rounds? ('quit' to exit)."
 	answer = gets.chomp.downcase
@@ -26,3 +22,5 @@ loop do
 		puts "Please enter a number or 'quit'."
 	end
 end
+
+knuckleheads.save_high_scores
