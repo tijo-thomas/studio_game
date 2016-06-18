@@ -6,7 +6,7 @@ player2 = Player.new("larry", 60)
 player3 = Player.new("curly", 125)
 
 knuckleheads = Game.new("Knuckleheads")
-knuckleheads.load_players("players.csv") # Calls the load_players method and specified file into it.
+knuckleheads.load_players(ARGV.shift || "players.csv") # Calls the load_players method and passes the csv file entered as command-line argument or defaults to "players.csv".
 puts knuckleheads.title
 
 # knuckleheads.add_player(player1)
