@@ -1,6 +1,8 @@
 require_relative "treasure_trove"
+require_relative "playable"
 
 class Player
+	include Playable
 	
 	attr_accessor :name
 	attr_reader :health
@@ -16,26 +18,12 @@ class Player
 		Player.new(name, Integer(health))
 	end
 
-	def blam
-		@health -= 10
-		puts "#{@name} got blammed!"
-	end
-
-	def woot
-		@health += 15
-		puts "#{@name} got wooted!"
-	end
-
 	def score
 		@health + points
 	end
 
 	def points
 		@found_treasures.values.reduce(0, :+)
-	end
-
-	def strong? # methods with '?' are called predicate methods
-		@health > 100
 	end
 
 	# Adds key-value pair to @found_treasures hash.
