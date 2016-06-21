@@ -1,17 +1,17 @@
 module Playable
 
 	def woot
-		@health += 15
-		puts "#{@name} got wooted!"
+		self.health += 15 # Changed from '@health' to 'self.health' because when assigning a value to an attribute you must use self
+		puts "#{name} got wooted!"
 	end
 
 	def blam
-		@health -= 10
-		puts "#{@name} got blammed!"
+		self.health -= 10 # Changed from '@health' to 'self.health' because when assigning a value to an attribute you must use self
+		puts "#{name} got blammed!"
 	end
 
 	def strong? # methods with '?' are called predicate methods
-		@health > 100
+		health > 100
 	end	
 	
 end
